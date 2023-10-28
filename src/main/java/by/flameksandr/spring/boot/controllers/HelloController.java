@@ -1,8 +1,10 @@
 package by.flameksandr.spring.boot.controllers;
 
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
 import java.util.Map;
 
 @RestController
@@ -23,5 +25,11 @@ public class HelloController {
     @GetMapping("/all")
     public Map<String, String> all(@RequestHeader Map<String, String> map) {
         return map;
+    }
+
+    @GetMapping(value = "/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
+    public byte[] file(){
+        byte[] file = new byte[100];
+        return file;
     }
 }
