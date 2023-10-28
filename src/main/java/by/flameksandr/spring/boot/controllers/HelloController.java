@@ -1,5 +1,6 @@
 package by.flameksandr.spring.boot.controllers;
 
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -12,8 +13,9 @@ public class HelloController {
                        @RequestHeader String a,
                        @RequestHeader String b,
                        @RequestHeader String c,
-                       @RequestBody String body) {
-
+                       @RequestBody String body,
+                       HttpServletResponse response) {
+            response.setStatus(HttpServletResponse.SC_ACCEPTED);
         return name + " " + a + " " + b + " " + c + " " + body;
     }
 
