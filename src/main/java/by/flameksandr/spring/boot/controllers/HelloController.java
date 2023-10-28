@@ -16,6 +16,7 @@ public class HelloController {
                        @RequestBody String body,
                        HttpServletResponse response) {
             response.setStatus(HttpServletResponse.SC_ACCEPTED);
+            response.addHeader("Test", "good");
         return name + " " + a + " " + b + " " + c + " " + body;
     }
 
