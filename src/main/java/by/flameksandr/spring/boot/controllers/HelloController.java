@@ -2,6 +2,8 @@ package by.flameksandr.spring.boot.controllers;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 public class HelloController {
 
@@ -13,5 +15,10 @@ public class HelloController {
                        @RequestBody String body) {
 
         return name + " " + a + " " + b + " " + c + " " + body;
+    }
+
+    @GetMapping("/all")
+    public Map<String, String> all(@RequestHeader Map<String, String> map) {
+        return map;
     }
 }
