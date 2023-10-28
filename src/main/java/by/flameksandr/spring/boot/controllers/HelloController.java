@@ -1,17 +1,17 @@
 package by.flameksandr.spring.boot.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HelloController {
 
-    @GetMapping("/test")
-    public String test(@RequestHeader String a,
+    @PostMapping("/test/{name}")
+    public String test(@PathVariable String name,
+                       @RequestHeader String a,
                        @RequestHeader String b,
-                       @RequestHeader String c) {
+                       @RequestHeader String c,
+                       @RequestBody String body) {
 
-        return a + " " + b + " " + c;
+        return name + " " + a + " " + b + " " + c + " " + body;
     }
 }
